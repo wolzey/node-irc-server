@@ -4,6 +4,8 @@
   "description": "IRC server",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "example-client": "node client.js",
     "test": "mocha"
   },
   "keywords": [
