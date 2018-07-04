@@ -10,7 +10,7 @@ socket.on('connect', () => {
   })
 
   socket.on('user message', ({username, message}) => {
-    console.log(green(`<${username}>:`), message)
+    console.log(blue(`<${username}>:`), message)
   })
 
   socket.emit('send', 'Hey there!')
