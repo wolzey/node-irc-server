@@ -1,0 +1,22 @@
+{
+  "name": "node-irc-server",
+  "version": "1.0.0",
+  "description": "IRC server",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "irc",
+    "node",
+    "chat"
+  ],
+  "author": "Ethan Wolz <ethan@creadiv.io>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chalk": "^2.4.1",
+    "express": "^4.16.3",
+    "socket.io": "^2.1.1"
+  }
+}
