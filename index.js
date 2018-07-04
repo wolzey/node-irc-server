@@ -1,5 +1,6 @@
 const express    = require('express')
 const bodyParser = require('body-parser')
+const {green, red} = require('chalk')
 
 const { PORT } = require('./config')
 
@@ -13,4 +14,4 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.listen(PORT)
 
-console.log(`Socket server running on port: ${PORT}`)
+console.log(`${green('Socket server running on port:')} ${red.bold(PORT)}`)
