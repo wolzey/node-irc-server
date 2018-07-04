@@ -12,8 +12,8 @@ const {
   handleUserJoinRoom
 } = require('./default/handlers')
 
-const ChatCommands = require('../chat')
-const AdminCommands = require('../admin')
+const ChatCommands = require('./chat')
+const AdminCommands = require('./admin')
 
 const commands = [
   {
