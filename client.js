@@ -9,6 +9,13 @@ socket.on('connect', () => {
     output: process.stdout
   })
 
+  const console_out = (msg) => {
+    process.stdout.clearLine(1)
+    process.stdout.cursorTo(0)
+    console.log(msg)
+    rl.prompt(true)
+  }
+
   rl.setPrompt("> ")
   rl.prompt()
 
@@ -16,6 +23,7 @@ socket.on('connect', () => {
     if (line == '/clear') {
       process.stdout.write('\033c')
     }
+
     line    = line.toString().trim()
 
     if (!line.match(/^\//)) {
@@ -30,20 +38,21 @@ socket.on('connect', () => {
   })
 
   socket.emit('nick', 'Wolzey')
+  socket.emit('join', 'general')
+
+  socket.on('nickname', (username) => {
+    console_out('Your username is now:', username)
+  })
 
   socket.on('user join', ({user, room}) => {
-    console.log(blue(user), green('just joined room'), red.bold(room))
+    console_out(`${blue(user)} ${green('just joined room')} ${red.bold(room)}`)
   })
 
   socket.on('user message', ({username, message}) => {
-    console.log(blue(`<${username}>:`), message)
+    console_out(`<${blue(username)}>: ${message}`)
   })
 
   socket.on('help', (commands) => {
-    process.stdout(commands + '\n')
+    console_out(commands)
   })
-
-  // stdin.addListener('data', (data) => {
-
-  // })
 })

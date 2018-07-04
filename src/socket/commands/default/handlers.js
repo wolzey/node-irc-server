@@ -1,7 +1,8 @@
 module.exports = {
   handleChangeUserSetting: (setting) => {
     return (socket, io, data) => {
-      return socket.user[setting] = data
+      socket.user[setting] = data
+      socket.emit(setting, data)
     }
   },
   handleUserExit: (socket, io) => {
