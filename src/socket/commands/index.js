@@ -39,8 +39,12 @@ const commands = [
   {
     command: Events.HELP,
     handler: (socket, io) => {
-      socket.emit('help', '\n\n' + commands.map((event) => (
-        `/${event.command.toUpperCase()} ${green(event.helper || '') || ''}`)).join('\n\n')
+      let userCommands = commands.sort((a, b) => {
+        return a.command > b.command
+      })
+
+      socket.emit('help', '\n' + userCommands.map((event) => (
+        `/${event.command.toUpperCase()} ${green(event.helper || '') || ''}`)).join('\n')
       )
     }
   },

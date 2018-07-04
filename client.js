@@ -13,6 +13,15 @@ socket.on('connect', () => {
     console.log(blue(`<${username}>:`), message)
   })
 
+  socket.on('help', (commands) => {
+    console.log(commands + '\n')
+  })
+
+  socket.emit('help')
+
   socket.emit('send', 'Hey there!')
+  socket.emit('send', 'How are you?')
+  socket.emit('send', 'I\'m good!')
+
   socket.emit('exit')
 })
