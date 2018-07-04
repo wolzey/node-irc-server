@@ -4,13 +4,13 @@ const {
     Events,
     Helpers
   }
-} = require('../constants')
+} = require('./constants')
 
 const {
   handleChangeUserSetting,
   handleUserExit,
   handleUserJoinRoom
-} = require('./handlers')
+} = require('./default/handlers')
 
 const ChatCommands = require('../chat')
 const AdminCommands = require('../admin')

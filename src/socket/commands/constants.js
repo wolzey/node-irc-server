@@ -8,10 +8,10 @@ module.exports = {
       HELP: 'help'
     },
     Helpers: {
-      NICK: '[nickname] - Set nickname',
-      MODE: '[mode] - Change user mode',
       EXIT: '- Leaves server',
-      JOIN: '[room name] - Join chat room'
+      JOIN: '[room name] - Join chat room',
+      MODE: '[mode] - Change user mode',
+      NICK: '[nickname] - Set nickname'
     }
   },
   Admin: {
