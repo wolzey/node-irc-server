@@ -9,6 +9,7 @@ module.exports = {
     },
     Helpers: {
       EXIT: '- Leaves server',
+      HELP: '- Shows all available commands',
       JOIN: '[room name] - Join chat room',
       MODE: '[mode] - Change user mode',
       NICK: '[nickname] - Set nickname'

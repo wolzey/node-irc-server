@@ -46,7 +46,8 @@ const commands = [
       socket.emit('help', '\n' + userCommands.map((event) => (
         `/${event.command.toUpperCase()} ${green(event.helper || '') || ''}`)).join('\n')
       )
-    }
+    },
+    helper: Helpers.HELP
   },
   ...ChatCommands,
   ...AdminCommands
