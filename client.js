@@ -5,8 +5,8 @@ socket.on('connect', () => {
   socket.emit('nick', 'Wolzey')
   socket.emit('join', 'backroom')
 
-  socket.on('user join', (room) => {
-    console.log(green('User just joined room'), red.bold(room))
+  socket.on('user join', ({user, room}) => {
+    console.log(blue(user), green('just joined room'), red.bold(room))
   })
 
   socket.on('user message', ({username, message}) => {
