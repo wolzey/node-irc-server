@@ -6,10 +6,11 @@ module.exports = {
     }
   },
   handleUserExit: (socket, io) => {
-    console.log(`${socket.user.nickname} disconnected`)
+    io.to(socket.user.room).emit('user leave', socket.user.nickname)
     return socket.disconnect()
   },
   handleUserJoinRoom: (socket, io, room) => {
+    if (!socket.user.nickname) return socket.emit('user join error', 'Need to set nickname with /nick before joining')
     socket.user.room = room
     socket.join(room)
     io.to(socket.user.room).emit('user join', {room, user: socket.user.nickname})

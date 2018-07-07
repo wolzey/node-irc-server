@@ -2,7 +2,7 @@ const { findMatchingUsername } = require('../../../socket/utils')
 
 module.exports = {
   sendMessage: (socket, io, message) => {
-    console.log('Sending Message to', socket.user.room)
+    if (!socket.user.room) return socket.emit('message error', 'You need to join a room first `/join`')
     io.to(socket.user.room).emit('user message', {username: socket.user.nickname, message})
   },
   whisperUser: (socket, io, {message, username}) => {
