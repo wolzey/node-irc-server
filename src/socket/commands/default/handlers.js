@@ -13,6 +13,6 @@ module.exports = {
     if (!socket.user.nickname) return socket.emit('user join error', 'Need to set nickname with /nick before joining')
     socket.user.room = room
     socket.join(room)
-    io.to(socket.user.room).emit('user join', {room, user: socket.user.nickname})
+    io.sockets.in(socket.user.room).emit('user join', {room, user: socket.user.nickname})
   }
 }
