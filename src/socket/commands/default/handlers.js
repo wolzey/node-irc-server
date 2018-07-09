@@ -6,7 +6,7 @@ module.exports = {
     }
   },
   handleUserExit: (socket, io) => {
-    io.to(socket.user.room).emit('user leave', socket.user.nickname)
+    io.sockets.in(socket.user.room).emit('user leave', socket.user.nickname)
     return socket.disconnect()
   },
   handleUserJoinRoom: (socket, io, room) => {
